@@ -7,9 +7,6 @@ name = "pypi"
 streamlit = "*"
 httpx = "*"
 selectolax = "*"
-fastapi = "*"
-uvicorn = "*"
-flask = "*"
 
 [dev-packages]
 
