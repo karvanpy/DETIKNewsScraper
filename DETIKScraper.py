@@ -12,13 +12,27 @@ async def parse_item(result):
     category = result.css_first('span.category').text()
     date = result.css_first('span.date').text().lstrip(category)
     desc = result.css_first('span.box_text > p').text()
+    content = await parse_content(url)
     return {
         'title': title,
         'url': url,
         'category': category,
         'date': date,
-        'desc': desc
+        'desc': desc,
+        'content': content
     }
+
+async def parse_content(url):
+    async with httpx.AsyncClient() as client:
+        try:
+            response = await client.get(url, timeout=10.0)
+        except httpx.TimeoutException:
+            return {"error": f"Sorry, unable to connect to {url}. \nPlease try again."}
+
+    parser = HTMLParser(response.text)
+    contents = parser.css('div.detail__body-text > p')
+    contents = [content.text() for content in contents]
+    return "\n".join(contents)
 
 async def parse(url, params, headers):
     async with httpx.AsyncClient() as client:
@@ -68,7 +82,6 @@ async def main():
 
         # Flatten the nested list of items
         items = [item for page_items in items for item in page_items]
-        print(items)
 
         data = pd.DataFrame(items)
         data.index += 1
