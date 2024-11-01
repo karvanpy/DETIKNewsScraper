@@ -41,14 +41,32 @@ You can try the live demo at: https://detiknewsscraper.streamlit.app/
 2. Clone the repository: `git clone https://github.com/karvanpy/DETIKNewsScraper`
 3. Run the scraper: `streamlit run DETIKScraper.py`
 
-### Using Termux
+### Termux
 
-1. Install dependencies and build tools: `pkg install python build-essential cmake ninja libopenblas libandroid-execinfo patchelf binutils-is-llvm`
-2. Install tools for building Python projects: `pip3 install setuptools wheel packaging pyproject_metadata cython meson-python versioneer`
-3. Install pyarrow and pillow: `pkg install python-pyarrow python-pillow`
-4. Install selectolax and streamlit: `pip3 install httpx selectolax streamlit`
-5. Clone the repository: `git clone https://github.com/karvanpy/DETIKNewsScraper`
-6. Run the scraper: `streamlit run DETIKScraper.py`
+1. Install dependencies and build tools: 
+```
+pkg install python build-essential cmake ninja libopenblas libandroid-execinfo patchelf binutils-is-llvm
+```
+2. Install tools for building Python projects: 
+```
+pip3 install setuptools wheel packaging pyproject_metadata cython meson-python versioneer
+```
+3. Install pyarrow and pillow: 
+```
+pkg install python-pyarrow python-pillow
+```
+4. Install selectolax and streamlit: 
+```
+pip3 install httpx selectolax streamlit
+```
+5. Clone the repository: 
+```
+git clone https://github.com/karvanpy/DETIKNewsScraper
+```
+6. Run the scraper: 
+```
+streamlit run DETIKScraper.py
+```
 
 ## Usage
 -----
